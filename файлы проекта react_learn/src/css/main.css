@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 * {
 	margin:0;
 	padding: 0;
@@ -8,14 +11,118 @@
 body {
 	background-color: #333;
 	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
 }
+/*font-family это общий шрифт для всего сайта*/
+
 
 .header {
-	background-color: #000;
-	padding: 20px;
+	background-color: #222;
+	padding: 25px 100px;
+	font-weight: 600;
 }
+/*добавили стилей отступы padding сверху и снизу 25, и по бокам по 100 */
+
 /*header это клас для html*/
 /*padding - это отступы*/
+
+/*есть сайт https://fonts.google.com/
+оттуда можно подключать шрифты
+*/
+/*
+пример ссылки на шрифты, откуда копировали ссылку для импорта
+https://fonts.google.com/selection/embed
+импорт в самом верху файла сделан сейчас в текущем файле
+*/
+
+main {
+	margin: 50px 100px;
+	width: 40%;
+	float: left;
+}
+/*margin: 50px 100px;
+это отступы сверху и снизу по 50
+справа и слева по 100
+width это ширина блока, 50%
+float - это позиционирование
+*/
+
+
+aside {
+	width: 40%;
+	margin-top: 50px;
+	margin-left: 5%;
+	float: left;
+}
+
+main .user {
+	margin-bottom: 50px;
+	background-color: #3e8fa0;
+	padding: 20px;
+}
+/*margin-bottom: 50px; это отступ снизу
+background-color: #3e8fa0; цвет фона
+padding: 20px; внутренние отступы
+*/
+
+/*ниже стили для иконок*/
+
+main .delete-icon {
+	float: right;
+	color: #134b57;
+	cursor: pointer;
+	transform: scale(2);
+}
+
+main .edit-icon {
+	float:right;
+	margin-right: 25px;
+	color: #165664;
+	cursor: pointer;
+	transform: scale(2);
+}
+/*это параметры иконок*/
+
+main .delete-icon:hover,
+main .edit-icon:hover{
+	opacity: 0.5;
+}
+/*иконки будут немного прозрачными при наведении*/
+
+/*стили для формы доабвления пользователей*/
+
+aside form input:not([type="checkbox"]),
+aside form textarea, 
+aside form button {
+	width: 80%;
+	padding: 15px 5%;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	margin-bottom: 10px;
+	border: 0;
+	background: #222;
+	color: #fff;
+	outline: none;
+	font-size: 15px;
+
+}
+/*стили применяются к списку элементов*/
+
+aside form input[type="checkbox"]{
+	margin: 10px;
+}
+
+aside form button {
+	width: 300px;
+	cursor: pointer;
+	transition: transform 500ms ease;
+}
+
+aside form button:hover {
+	transform: scale(1.1);
+
+}
 
 
 
