@@ -2,11 +2,12 @@ import React from "react"
 
 
 class AddUser extends React.Component {
+  userAdd = {}//просто пустой объект
   constructor(props) {
     super(props)
     this.state = {
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       biograph: "",
       age: 1,
       isHappy: false
@@ -18,8 +19,8 @@ class AddUser extends React.Component {
     
     return (
         <form ref={(el) => this.myForm = el}>
-          <input placeholder="Имя" onChange={(e) => this.setState({ firstname: e.target.value }) } />
-          <input placeholder="Фамилия" onChange={(e) => this.setState({ lastname: e.target.value }) } />
+          <input placeholder="Имя" onChange={(e) => this.setState({ first_name: e.target.value }) } />
+          <input placeholder="Фамилия" onChange={(e) => this.setState({ last_name: e.target.value }) } />
           <textarea placeholder="Биография" onChange={(e) => this.setState({ biograph: e.target.value }) } ></textarea>
           <input placeholder="Возраст" onChange={(e) => this.setState({ age: e.target.value }) } />
 
@@ -27,18 +28,22 @@ class AddUser extends React.Component {
           <input type="checkbox" id="isHappy" onChange={(e) => this.setState({ isHappy: e.target.checked }) } />
           <button type="button" onClick={() => {
             this.myForm.reset()
-            this.props.onAdd({
-              firstname: this.state.firstname,
-              lastname: this.state.lastname,
+            this.userAdd = {
+              first_name: this.state.first_name,
+              last_name: this.state.last_name,
               biograph: this.state.biograph,
               age: this.state.age,
               isHappy: this.state.isHappy,
-          })
+            }
+            if (this.props.user){
+              this.userAdd.id = this.props.user.id
+            }
+            this.props.onAdd(this.userAdd)
          }
          }>Добавить</button>
         </form>
-
-      
+//в this.props.onAdd мы просто всталяем объект состояния. А теперь будем отдельно записывать в переменную объект состояния. Теперь можно наш объект проверять перед записью методом onAdd. И записывать поле id
+//в условии описано, что если мы передаем пользака то есть свойство user, то значит форма используется для редактирования, а не для создания. Теперь id передается, и тепеь мы можем обращаться по id к записи. Веремся и допишем App.js
       )
 
     }

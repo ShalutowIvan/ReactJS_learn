@@ -90,11 +90,11 @@ main .edit-icon:hover{
 }
 /*иконки будут немного прозрачными при наведении*/
 
-/*стили для формы доабвления пользователей*/
+/*стили для формы добавления пользователей*/
 
-aside form input:not([type="checkbox"]),
-aside form textarea, 
-aside form button {
+form input:not([type="checkbox"]),
+form textarea, 
+form button {
 	width: 80%;
 	padding: 15px 5%;
 	font-family: 'Montserrat', sans-serif;
@@ -109,20 +109,43 @@ aside form button {
 }
 /*стили применяются к списку элементов*/
 
-aside form input[type="checkbox"]{
+form input[type="checkbox"]{
 	margin: 10px;
 }
 
-aside form button {
+form button {
 	width: 300px;
 	cursor: pointer;
 	transition: transform 500ms ease;
 }
 
-aside form button:hover {
+form button:hover {
 	transform: scale(1.1);
-
 }
+
+/*стили для юзер формы при редактировании*/
+.user form {
+	margin-top: 20px;	
+}
+
+.user form input,
+.user form textarea,
+.user form button {
+	background: #134b57;
+}
+
+.user form button:hover {
+	transform: scale(1.01);
+}
+
+
+
+
+
+
+
+
+
 
 
 

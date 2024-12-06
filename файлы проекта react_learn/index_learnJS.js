@@ -2,6 +2,7 @@
 // https://www.youtube.com/watch?v=h8psMIltC1Q&list=PLDyJYA6aTY1lpbNh66kFpF62QpJyzliT2&index=3
 // или курс другой:
 // https://www.youtube.com/watch?v=kz23xxukY5s&t=261s
+
 // еще есть UbiTV:
 // https://www.youtube.com/watch?v=GNrdg3PzpJQ&t=672s
 // вроде тоже норм. Там он показывает приложение реакта. Как оно работает не понятно.
@@ -9,11 +10,18 @@
 // https://www.youtube.com/watch?v=UvssjybWRvA&list=PLMlifxDLpB1CAtLxKmIE5FfGZkNx5K5XX&index=2
 // надо смотреть, вроде норм
 
+// Хороший курс по JS
+// https://www.youtube.com/watch?v=GNrdg3PzpJQ&t=1094s
+// еще курс большой по js
+// https://www.youtube.com/watch?v=kz23xxukY5s&t=1045s
+// еще курс
+// https://www.youtube.com/watch?v=Fbsusu0xfpY&t=879s
+
 
 
 // чтобы подключить react нужно в теге head скопировать эти 2 ссылки:
-{/* <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> */}
+// {/* <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+// <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> */}
 // их взяли со страницы документации:
 // https://ru.legacy.reactjs.org/docs/cdn-links.html
 // вставлять их нужно именно в теге head чтобы скрипты работали в теле body страницы
@@ -223,7 +231,16 @@ constructor(props) {
 // сделаем так, чтобы при добавлении пользака данные из формы очищались
 // можно в теге формы указать тег для очистки формы
 // тег ref={(el) =>}
+// удаление записей!!!!!!!!!!!!!
+// написал инфу в App.js User.js User_view.js. Подключил через метод удаления в App.js
+// редактирование записей !!!!!!!!!!!!!!!!!!!!
+// при нажатии на молоточек, будет открываться формочка для редактирования
+// для редактирования нужно новое состояние. Идем в файл User_view.js
 
+// Уроки React JS с нуля / #10 – Axios и API. Получение пользователей с сервера!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// теперь вместо нашего списка будем юзать api. 
+// установим сначала библиотеку axios и импортируем ее
+// перейдем в App.js. Продолжение там 
 
 
 
