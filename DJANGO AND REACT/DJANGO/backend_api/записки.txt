@@ -1,0 +1,94 @@
+установим джано и джанго рест
+затем установим django-cors-headers
+команда:
+pip install django-cors-headers
+создаем проект, команда:
+django-admin startproject backend_api
+backend_api это название проекта
+теперь идем по доке:
+https://pypi.org/project/django-cors-headers/
+там есть описание что нужно добавить в settings.py приложение app
+'corsheaders'
+затем в MIDDLEWARE 
+"corsheaders.middleware.CorsMiddleware", добавляем это
+эту строку добавляем перед строкой "django.middleware.common.CommonMiddleware",
+затем нужно вставить строку CORS_ALLOWED_ORIGINS: True
+сразу после списка INSTALLED_APPS
+это для того чтобы наш апи принимал все запросы
+далее нужно создать папку templates на уровне с файлом manage.py, то есть там расположены папки с проектом и приложениями. В нее добавим 2 файла base.html и home.html
+далее идем в setting.py и импортируем os
+затем в списке TEMPLATES в элементе DIR[BASE_DIR / os.path.join('templates')] 
+далее в переменной STATIC_URL допишем слеш в начале: STATIC_URL = '/static/' это в случае относительного пути
+и создадим переменную STATIC_ROOT = os.path.join(BASE_DIR, "static")
+создадим переменную медиа
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+далее идем в urls.py также в папке где был setting.py. Там добавляем урл из нашего приложения и импортируем include
+далее идем в папку в приложением todo_app
+там создаем файл urls.py
+там добавим ссылку на страницу home
+и далее идем в views.py и там добавим функцию home
+в home.html пропишем блок: {% block title %}API{% endblock title %}
+также допишем {% load static %} до тега head
+в боди допишем это: 
+	<header></header>
+	<main></main>
+	<footer></footer>
+
+сделали таблицу в базе, сделали урл, и html, сделали вьюшку одну
+и приписали к ней декоратор @api_view(['GET', 'POST'])
+
+
+Django React todo-app проект. Tailwind css #4!!!!!!!!!!!!!!!!!!!!!!
+
+
+ставим tailwindcss
+npm install -D tailwindcss postcss autoprefixer
+и
+npx tailwindcss init
+дока тут:
+https://tailwindcss.com/docs/installation/using-postcss
+идем в файл tailwind.config.js
+
+создаем в папке src файл index.css
+туда копируем импорты
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+далее идем в index.js
+
+там исправляем
+далее app.js
+там добавим оформления из tailwind css
+и идем на сайт с иконками 
+https://heroicons.com/
+на сайте идем в документацию: https://github.com/tailwindlabs/heroicons
+ставим пакет
+npm install @heroicons/react
+и копируем из доки строку с импортом
+import { BeakerIcon } from '@heroicons/react/24/solid'
+далее добавим обработчик событий onClick
+
+Django React todo-app проект. Получаем данные API через axios #5!!!!!!!!!!!!!!!!
+сделаем хук useEffect
+
+Django React todo-app проект. Удаление todo #6!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Django React todo-app проект. Окно для обновления данных #7!!!!!!!!!!!!!!!!!!!!!!!!!
+идем app.js
+
+Django React todo-app проект. Добавление Todo, POST запрос #8
+сделаем кнопку для пост запроса как бы подтверждения
+
+
+
+
+
+
+
+
+
+
+

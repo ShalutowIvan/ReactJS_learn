@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+	.icons{
+		@apply h-5 w-5 cursor-pointer;
+	}
+
+}
+/*написали стиль для вызова его в tailwind CSS. причем импортировать его не нужно в App.js, а просто прописать в нужном className*/
+
+@layer base {
+	body{
+		@apply font-light
+	}
+}
+
