@@ -16,8 +16,6 @@ export default function Button({ children, klicker, isActive}) {
     let classes = 'button'
     if (isActive) classes += ' active'
 
-
-
     // return (
     //     <button className={isActive ? 'button active': 'button'} onClick={klicker} >{children}</button>
     // )

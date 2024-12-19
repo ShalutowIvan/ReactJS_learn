@@ -8,11 +8,13 @@ import Header from './components/Header'
 import { useState } from 'react'
 import MassivSection from './components/Section_massiv'
 import Json_example_section from './components/Section_button'
-
-
-
+// import { Fragment } from 'react'
+import IntroSection from './components/introSection'
+import TabsSection from './components/TabsSection'
+import FeedbackSection from './components/FeedbackSection'
 
 function App() {
+  const [tab, setTab] = useState('feedback')
 
   // const stateArray = useState("Нажми на кнопку")//создали состояние  
   // const content = stateArray[0]
@@ -35,23 +37,29 @@ function App() {
   // else{
   //   tabContent = <p>Нажми на кнопку</p>
   // }
-
-  
-  
+    
   return (
-    <div>
-
+    <>
       <Header />
-       
-
       <main>
+        <IntroSection />
+
+        <TabsSection active={tab} izmenenie={(current) => setTab(current)} />
+
+        {tab === 'main' && (
+          <>
+            <MassivSection />
+            <Json_example_section />
+          </>
+        )}
+
+        {tab === 'feedback' && <FeedbackSection />}
+
+
+
         
-        <MassivSection />
-
-        <Json_example_section />
-
       </main>
-    </div>
+    </>
   )
 }
 
