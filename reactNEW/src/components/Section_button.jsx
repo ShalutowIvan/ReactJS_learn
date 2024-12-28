@@ -24,9 +24,9 @@ export default function Json_example_section () {
         
         <section>
           <h3>Заголовок № 2</h3>
-          <Button isActive={contentType==="bla"} klicker={() => handleClick("bla")}>Кнопарь №1</Button>
-          <Button isActive={contentType==="tra"} klicker={() => handleClick("tra")}>Кнопарь №2</Button>
-          <Button isActive={contentType==="python"} klicker={() => handleClick("python")}>Кнопарь №3</Button>
+          <Button isActive={contentType==="bla"} onClick={() => handleClick("bla")}>Кнопарь №1</Button>
+          <Button isActive={contentType==="tra"} onClick={() => handleClick("tra")}>Кнопарь №2</Button>
+          <Button isActive={contentType==="python"} onClick={() => handleClick("python")}>Кнопарь №3</Button>
           
         {/* { contentType ? 
         ( <p>{json_example[contentType]}</p> ) :

@@ -1,4 +1,4 @@
-import "./Button.css"
+import classes from "./Button.module.css"
 
 // export default function Button({ children }) {
 //     function handleClick() {
@@ -11,22 +11,45 @@ import "./Button.css"
 //     )
 // }
 
-export default function Button({ children, klicker, isActive}) {
+
+
+// export default function Button({ children, klicker, isActive}) {
+//     // console.log("отобразили кнопку")
+//     let classes = 'button'
+//     if (isActive) classes += ' active'
+
+//     // return (
+//     //     <button className={isActive ? 'button active': 'button'} onClick={klicker} >{children}</button>
+//     // )
+//     return (
+//         <button className={classes} onClick={klicker} >{children}</button>
+//     )
+// }
+
+
+// klicker
+// onClick={klicker}
+// убрал этот параметр и его вызов, и оставил {...props}, и теперь можно передавать любые параметры. Но onClick теперь вызывается как обработчик событий при вызове компонента
+export default function Button({ children, isActive, ...props}) {
     // console.log("отобразили кнопку")
-    let classes = 'button'
-    if (isActive) classes += ' active'
+    // let classes = 'button'
+    // if (isActive) classes += ' active'
+    // console.log(classes)
 
     // return (
-    //     <button className={isActive ? 'button active': 'button'} onClick={klicker} >{children}</button>
+    //     <button className={classes} onClick={klicker} >{children}</button>
     // )
-    return (
-        <button className={classes} onClick={klicker} >{children}</button>
 
+    return (
+        <button 
+            {...props}
+            className={isActive ? `${classes.button} ${classes.active}`: classes.button }            
+            >
+        {children}
+        </button>
     )
+    
 
 }
-
-
-
 
 

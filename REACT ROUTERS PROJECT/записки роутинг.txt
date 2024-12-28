@@ -1,0 +1,136 @@
+уроки:
+https://www.youtube.com/watch?v=wZ1P3QM9_p8&list=PLiZoB8JBsdznY1XwBcBhHL9L7S_shPGVE&index=4
+
+
+поставим библиотеку react-router-dom
+npm install react-router-dom
+
+далее в базовом файле main.jsx нужно обернуть наше приложение в тег BrowserRouter
+также его нужно импортировать из react-router-dom
+
+импортируем в App.jsx из Routes, Route, Link из react-router-dom
+Routes - роуты
+Route - роут
+Link - ссылка!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ранее был компонент switch
+сейчас его нет, вместо него Routes
+создадим папку pages
+в ней создадим файлы для страниц
+и импортируем их в App.jsx
+import Homepage from './pages/Homepage'
+import Aboutpage from './pages/Aboutpage'
+import Blogpage from './pages/Blogpage'
+import Notfoundpage from './pages/Notfoundpage'
+
+для роутинга сделаем тег Routes
+и дочерними элементами в нем будут компоненты Route
+один из дочерних элементов
+<Route path="/" element={<Homepage />} />
+<Route path="/about" element={<Aboutpage />} />
+<Route path="/blog" element={<Blogpage />} />
+<Route path="*" element={<Notfoundpage />} />
+писать нужно именно так, а не с закрывающим и открывающим тегом
+
+создадим компоненты
+сделаем компонент Layout, туда перенесем ссылки Link
+
+и создадим там компонент Outlet !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+суть его такая, что мы говорим нашей разметки куда мы хотим вставить все остальное
+то что идет после Outlet это то куда мы хотим вставить весь остальной контент
+у нас пока только футер, но там будет и все остальное
+создаем новый Route в файле App.jsx
+В нем будут все наши Route со ссылками
+то есть получается тут будет общая обертка, и в ней будут вложенные роуты, их можно динамически менять
+причем этот компонент будет предоставлять место куда будет отрисовываться все дочернее содержимое. То есть там где мы написали Outlet и ниже
+То есть, мы в файле Layout.jsx написали сначала тег header, потом Outlet, а потом footer, и Outlet это содержимое нашего роута, то есть как было тело между хедером и футером. Вроде понятно
+пропишем такую структуру
+<Route path="/" element={<Layout />}>
+	<Route index element={<Homepage />} />        
+	<Route path="posts" element={<Blogpage />} />
+	<Route path="about" element={<Aboutpage />} />
+	<Route path="*" element={<Notfoundpage />} />
+</Route>
+тут получается будет Homepage идти в корне по адресу "/", далее добавляться будут ссылки posts about и др
+Outlet - это как бы блок в jinja
+в него можно всталять блоки кода
+
+Компонент NavLink и его кастомизация в React-Router 6!!!!!!!!!!!!!!!!!!!!!!!!!
+это выделенные ссылки
+сделаем стиль для выделения ссылки
+и сделаем переменную в которой будет переключаться стиль
+const setActive = ({isActive}) => isActive ? 'active-link' : '';
+и потом в наших линках стиль будем указывать
+className={setActive}
+по умолчанию в теге уже указан className стиль active, если мы создаим свой то его надо будет прописать как  className
+также можно и прописать style
+он принимает объект, но можно передать и функцию. 
+в NavLink есть встроенный параметр isActive
+его можно проверять
+
+сделаем кастомный линк
+
+import { Link, useMatch } from 'react-router-dom'
+
+export default function CustomLink({ children, to, ...props }) {
+	const match = useMatch(to);
+	console.log({match})
+
+
+	return (
+		
+		<Link 
+			to={to}
+			style={{
+				color:match ? 'var(--color-active)' : 'white',
+			}}
+			{...props}>
+
+			{children}
+		</Link>
+		)
+}
+
+не разобрался как работает useMatch, и кажется что className достаточно будет
+
+
+
+Параметры в ссылках в React Router 6!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+параметр пишется примерно так
+<Route path="posts/:id" element={<Singlepage />} />
+:id это параметр роутера
+создадим файл Singlepage.jsx в папке pages
+в нем сделаем простой компонент Singlepage
+import React from 'react';
+
+
+export default function Singlepage() {
+
+	return (
+		<>
+			<p>1</p>
+
+		</>
+		)
+}
+
+будем использовать хук useParams для использования параметров
+можно в ссылке использовать и несколько параметров
+и потом в логике приложения параметры можно использовать
+то есть в ссылку что-то передали и потом используем как в питоне
+обычно используется один параметр, а не 2. Я так и делал в питоне
+при использовании useParams() выводятся сразу весь список параметров если их несколько
+useParams() - это типа словарь в питоне
+можно обращаться useParams().название параметра и выведется значение параметра
+либо можно обращаться и так: const {id} = useParams();
+и у нас будет переменная с названием id
+ее можно применять в коде jsx
+в компоненте Blogpage сделаем апи запрос, и там будем выводить id от поста в через компонент Singlepage, он будет автоматом подтягивать ссылку
+в файле Singlepage сделали так, чтобы при запросе линка из компонента Blogpage к сайту выводился сам пост
+юзнули состояние state и useEffect
+ост 7.40
+
+
+
+
+
+
