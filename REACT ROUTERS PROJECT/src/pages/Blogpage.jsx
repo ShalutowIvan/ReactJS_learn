@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Blogpage() {
 	const [posts, setPosts] = useState([]);
+	console.log(useLocation());
+
 
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/posts')
 			.then(res => res.json())
 			.then(data => setPosts(data))
-	})
+	}, [])
 
 	return (
 		<div>

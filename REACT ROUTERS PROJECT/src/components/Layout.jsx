@@ -2,7 +2,7 @@ import { Link, Outlet, NavLink } from 'react-router-dom'
 import CustomLink from './CustomLink'
 
 
-export default function() {
+export default function Layout() {
 	const setActive = ({isActive}) => isActive ? 'active-link' : '';
 
 	return (
